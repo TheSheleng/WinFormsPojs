@@ -13,10 +13,23 @@ namespace SimplePaint
 {
     public partial class MainWindow : Form
     {
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn (
+                int nLeft,
+                int nTop,
+                int nRight,
+                int nBottom,
+                int nWidthEllipse,
+                int nHeightEllipse
+            );
+
         public MainWindow()
         {
             InitializeComponent();
             this.Padding = new Padding(ResizeIndent);
+
+            Canva.Width = Convert.ToInt32(CanvaWidht.Text);
+            Canva.Height = Convert.ToInt32(CanvaHeight.Text);
         }
 
         protected override void WndProc(ref Message message)
@@ -40,11 +53,31 @@ namespace SimplePaint
             }
         }
 
+        private void CanvaSize_Changed(object sender, EventArgs e)
+        {
+            int width; Int32.TryParse(CanvaWidht.Text, out width);
+            int height; Int32.TryParse(CanvaHeight.Text, out height);
+
+            if (width != 0 && height != 0)
+            {
+                Canva.Width = Convert.ToInt32(CanvaWidht.Text);
+                Canva.Height = Convert.ToInt32(CanvaHeight.Text);
+            }
+        }
+
         private void MainWindow_SizeChanged(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Maximized)
                 this.Padding = new Padding(0);
             else this.Padding = new Padding(3);
+        }
+
+        private void TextBoxOnlyNumbers(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         #region Drag Window
