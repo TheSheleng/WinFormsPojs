@@ -34,8 +34,7 @@ namespace SimplPainter
             get { return borderRadius; }
             set
             {
-                if (value <= Height) borderRadius = value;
-                else borderRadius = Height;
+                borderRadius = value;
                 this.Invalidate();
             }
         }
@@ -80,7 +79,7 @@ namespace SimplPainter
             if (borderRadius > Height) borderRadius = Height;
         }
 
-        private GraphicsPath GetFigurePath(RectangleF rect, float radius)
+        private GraphicsPath GetFigurePath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
 
@@ -97,29 +96,16 @@ namespace SimplPainter
         protected override void OnPaint(PaintEventArgs pevent)
         {
             base.OnPaint(pevent);
-            pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            RectangleF rectSurface = new RectangleF(0, 0, Width, Height);
-            RectangleF rectBorder = new RectangleF(1, 1, Width - 0.5F, Height - 1);
+
+            //pevent.Graphics.SmoothingMode = SmoothingMode.HighQuality;
+
+            Rectangle rectSurface = new Rectangle(0, 0, Width, Height);
+            Rectangle rectBorder = new Rectangle(1, 1, Width - 1, Height - 1);
 
             if (borderRadius > 2)
             {
-                //using (GraphicsPath pathSurface = GetFigurePath(rectSurface, borderRadius))
-                //using (GraphicsPath pathBorder = GetFigurePath(rectBorder, borderRadius - 1F))
-                //using (Pen penSurface = new Pen(Parent.BackColor, 2))
-                //using (Pen penBorder = new Pen(borderColor, borderSize))
-                //{
-                //    penBorder.Alignment = PenAlignment.Inset;
-
-                //    GraphicsPath p = new GraphicsPath();
-                //    p.AddEllipse(1, 1, Width - 4, Height - 4);
-                //    Region = new Region(p);
-
-                //    //pevent.Graphics.DrawRectangle(penBorder, rectSurface);
-                //    //pevent.Graphics.DrawRectangle(penSurface, rectBorder);
-                //}
-
                 using (GraphicsPath pathSurface = GetFigurePath(rectSurface, borderRadius))
-                using (GraphicsPath pathBorder = GetFigurePath(rectBorder, borderRadius - 1F))
+                using (GraphicsPath pathBorder = GetFigurePath(rectBorder, borderRadius - 1))
                 using (Pen penSurface = new Pen(Parent.BackColor, 2))
                 using (Pen penBorder = new Pen(borderColor, borderSize))
                 {
@@ -148,7 +134,7 @@ namespace SimplPainter
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
-            //Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
+            Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
         }
 
         private void Container_BackColorChanged(object sender, EventArgs e)
