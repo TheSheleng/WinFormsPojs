@@ -8,25 +8,18 @@ namespace SimplePaint
 {
     internal static class Program
     {
-        static public MainWindow View { get; private set; }
-
-        static Program()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            View = new MainWindow();
-        }
-
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            Program.ShowMainWindow();
-        }
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
-        static void ShowMainWindow() => Application.Run(View);
+            MainMediator mediator = new MainMediator();
+            
+            Application.Run(mediator.View);
+        }
     }
 }

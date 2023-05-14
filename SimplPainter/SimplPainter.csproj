@@ -84,31 +84,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\close.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\maximazi.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\minimize.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pen.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\redu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\save.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Text.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\undo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\close1.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
