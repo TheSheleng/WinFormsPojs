@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Canva.cs" />
+    <Compile Include="BitmapSave.cs" />
+    <Compile Include="ModelBitmapBackup.cs" />
+    <Compile Include="ModelCanva.cs" />
     <Compile Include="MainMediator.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -54,6 +56,7 @@
     <Compile Include="MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModelTools.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainWindow.resx">

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ChromPanel = new System.Windows.Forms.Panel();
             this.ChromMinimize = new System.Windows.Forms.Button();
             this.ChromMaximize = new System.Windows.Forms.Button();
@@ -35,6 +36,8 @@
             this.ChromClose = new System.Windows.Forms.Button();
             this.ToolsPanel = new System.Windows.Forms.Panel();
             this.ButtonColor24 = new System.Windows.Forms.Button();
+            this.ContextMenuStripColorFill = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.fillUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PanelShapes = new System.Windows.Forms.FlowLayoutPanel();
             this.ButtonDWLine = new System.Windows.Forms.Button();
             this.ButtonDWRectangle = new System.Windows.Forms.Button();
@@ -49,7 +52,7 @@
             this.ButtonColor22 = new System.Windows.Forms.Button();
             this.LabelHeight = new System.Windows.Forms.Label();
             this.LabelWidht = new System.Windows.Forms.Label();
-            this.BrushSize = new System.Windows.Forms.TextBox();
+            this.PenSize = new System.Windows.Forms.TextBox();
             this.CanvaHeight = new System.Windows.Forms.TextBox();
             this.BrushDown = new System.Windows.Forms.Button();
             this.CanvaWidht = new System.Windows.Forms.TextBox();
@@ -89,6 +92,7 @@
             this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.ChromPanel.SuspendLayout();
             this.ToolsPanel.SuspendLayout();
+            this.ContextMenuStripColorFill.SuspendLayout();
             this.PanelShapes.SuspendLayout();
             this.PanelTools.SuspendLayout();
             this.ClientArea.SuspendLayout();
@@ -180,7 +184,7 @@
             this.ToolsPanel.Controls.Add(this.ButtonColor22);
             this.ToolsPanel.Controls.Add(this.LabelHeight);
             this.ToolsPanel.Controls.Add(this.LabelWidht);
-            this.ToolsPanel.Controls.Add(this.BrushSize);
+            this.ToolsPanel.Controls.Add(this.PenSize);
             this.ToolsPanel.Controls.Add(this.CanvaHeight);
             this.ToolsPanel.Controls.Add(this.BrushDown);
             this.ToolsPanel.Controls.Add(this.CanvaWidht);
@@ -223,6 +227,8 @@
             // 
             this.ButtonColor24.BackColor = System.Drawing.Color.Magenta;
             this.ButtonColor24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor24.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor24.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor24.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor24.FlatAppearance.BorderSize = 0;
             this.ButtonColor24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -233,6 +239,21 @@
             this.ButtonColor24.TabIndex = 46;
             this.ButtonColor24.UseVisualStyleBackColor = false;
             this.ButtonColor24.Click += new System.EventHandler(this.ButtonColor_Click);
+            // 
+            // ContextMenuStripColorFill
+            // 
+            this.ContextMenuStripColorFill.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.ContextMenuStripColorFill.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fillUpToolStripMenuItem});
+            this.ContextMenuStripColorFill.Name = "ContextMenuStripColorFill";
+            this.ContextMenuStripColorFill.Size = new System.Drawing.Size(132, 36);
+            // 
+            // fillUpToolStripMenuItem
+            // 
+            this.fillUpToolStripMenuItem.Name = "fillUpToolStripMenuItem";
+            this.fillUpToolStripMenuItem.Size = new System.Drawing.Size(131, 32);
+            this.fillUpToolStripMenuItem.Text = "Fill up";
+            this.fillUpToolStripMenuItem.Click += new System.EventHandler(this.fillUpToolStripMenuItem_Click);
             // 
             // PanelShapes
             // 
@@ -252,6 +273,7 @@
             this.ButtonDWLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ButtonDWLine.BackgroundImage = global::SimplePaint.Properties.Resources.line;
             this.ButtonDWLine.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonDWLine.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonDWLine.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ButtonDWLine.FlatAppearance.BorderSize = 0;
             this.ButtonDWLine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -269,6 +291,7 @@
             this.ButtonDWRectangle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ButtonDWRectangle.BackgroundImage = global::SimplePaint.Properties.Resources.rectangle;
             this.ButtonDWRectangle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonDWRectangle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonDWRectangle.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ButtonDWRectangle.FlatAppearance.BorderSize = 0;
             this.ButtonDWRectangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -286,6 +309,7 @@
             this.ButtonDWEllipse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ButtonDWEllipse.BackgroundImage = global::SimplePaint.Properties.Resources.ellipse;
             this.ButtonDWEllipse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonDWEllipse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonDWEllipse.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ButtonDWEllipse.FlatAppearance.BorderSize = 0;
             this.ButtonDWEllipse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -303,6 +327,7 @@
             this.ButtonDWPolygon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ButtonDWPolygon.BackgroundImage = global::SimplePaint.Properties.Resources.polygon;
             this.ButtonDWPolygon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonDWPolygon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonDWPolygon.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ButtonDWPolygon.FlatAppearance.BorderSize = 0;
             this.ButtonDWPolygon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -333,6 +358,7 @@
             this.ButtonDWPen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ButtonDWPen.BackgroundImage = global::SimplePaint.Properties.Resources.pen;
             this.ButtonDWPen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonDWPen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonDWPen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ButtonDWPen.FlatAppearance.BorderSize = 0;
             this.ButtonDWPen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -350,6 +376,7 @@
             this.ButtonDWEraser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ButtonDWEraser.BackgroundImage = global::SimplePaint.Properties.Resources.eraser;
             this.ButtonDWEraser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonDWEraser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonDWEraser.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ButtonDWEraser.FlatAppearance.BorderSize = 0;
             this.ButtonDWEraser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -367,6 +394,7 @@
             this.ButtonDWFill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ButtonDWFill.BackgroundImage = global::SimplePaint.Properties.Resources.fill;
             this.ButtonDWFill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonDWFill.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonDWFill.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ButtonDWFill.FlatAppearance.BorderSize = 0;
             this.ButtonDWFill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -384,6 +412,7 @@
             this.ButtonDWPipette.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ButtonDWPipette.BackgroundImage = global::SimplePaint.Properties.Resources.pipette;
             this.ButtonDWPipette.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonDWPipette.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonDWPipette.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ButtonDWPipette.FlatAppearance.BorderSize = 0;
             this.ButtonDWPipette.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -400,6 +429,8 @@
             // 
             this.ButtonColor23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ButtonColor23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor23.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor23.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor23.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor23.FlatAppearance.BorderSize = 0;
             this.ButtonColor23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -415,6 +446,8 @@
             // 
             this.ButtonColor22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ButtonColor22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor22.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor22.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor22.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor22.FlatAppearance.BorderSize = 0;
             this.ButtonColor22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -448,21 +481,21 @@
             this.LabelWidht.Text = "WIDHT";
             this.LabelWidht.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // BrushSize
+            // PenSize
             // 
-            this.BrushSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
-            this.BrushSize.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.BrushSize.Font = new System.Drawing.Font("Bebas Neue", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BrushSize.ForeColor = System.Drawing.Color.White;
-            this.BrushSize.Location = new System.Drawing.Point(222, 190);
-            this.BrushSize.MaxLength = 3;
-            this.BrushSize.Name = "BrushSize";
-            this.BrushSize.Size = new System.Drawing.Size(75, 39);
-            this.BrushSize.TabIndex = 2;
-            this.BrushSize.Text = "5";
-            this.BrushSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.BrushSize.TextChanged += new System.EventHandler(this.PenWidthChanged);
-            this.BrushSize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxWriteSize);
+            this.PenSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
+            this.PenSize.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PenSize.Font = new System.Drawing.Font("Bebas Neue", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PenSize.ForeColor = System.Drawing.Color.White;
+            this.PenSize.Location = new System.Drawing.Point(222, 190);
+            this.PenSize.MaxLength = 3;
+            this.PenSize.Name = "PenSize";
+            this.PenSize.Size = new System.Drawing.Size(75, 39);
+            this.PenSize.TabIndex = 2;
+            this.PenSize.Text = "5";
+            this.PenSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PenSize.TextChanged += new System.EventHandler(this.PenWidthChanged);
+            this.PenSize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxWriteSize);
             // 
             // CanvaHeight
             // 
@@ -477,12 +510,13 @@
             this.CanvaHeight.Text = "500";
             this.CanvaHeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.CanvaHeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxWriteSize);
-            this.CanvaHeight.Leave += new System.EventHandler(this.CanvaSize_Changed);
+            this.CanvaHeight.Leave += new System.EventHandler(this.CanvaSizeChanged);
             // 
             // BrushDown
             // 
             this.BrushDown.BackgroundImage = global::SimplePaint.Properties.Resources.arrow_left;
             this.BrushDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BrushDown.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BrushDown.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.BrushDown.FlatAppearance.BorderSize = 0;
             this.BrushDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -507,12 +541,13 @@
             this.CanvaWidht.Text = "500";
             this.CanvaWidht.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.CanvaWidht.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxWriteSize);
-            this.CanvaWidht.Leave += new System.EventHandler(this.CanvaSize_Changed);
+            this.CanvaWidht.Leave += new System.EventHandler(this.CanvaSizeChanged);
             // 
             // BrushUp
             // 
             this.BrushUp.BackgroundImage = global::SimplePaint.Properties.Resources.arrow_right;
             this.BrushUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BrushUp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BrushUp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.BrushUp.FlatAppearance.BorderSize = 0;
             this.BrushUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -529,6 +564,7 @@
             this.UndoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.UndoButton.BackgroundImage = global::SimplePaint.Properties.Resources.undo;
             this.UndoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.UndoButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UndoButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.UndoButton.FlatAppearance.BorderSize = 0;
             this.UndoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -554,6 +590,7 @@
             this.SaveFileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.SaveFileButton.BackgroundImage = global::SimplePaint.Properties.Resources.save;
             this.SaveFileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.SaveFileButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SaveFileButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.SaveFileButton.FlatAppearance.BorderSize = 0;
             this.SaveFileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -569,6 +606,7 @@
             this.ReduButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ReduButton.BackgroundImage = global::SimplePaint.Properties.Resources.redu;
             this.ReduButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ReduButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ReduButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.ReduButton.FlatAppearance.BorderSize = 0;
             this.ReduButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -593,6 +631,7 @@
             // 
             this.ColorPicked.BackColor = System.Drawing.Color.Black;
             this.ColorPicked.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ColorPicked.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ColorPicked.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ColorPicked.FlatAppearance.BorderSize = 0;
             this.ColorPicked.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -609,6 +648,8 @@
             // 
             this.ButtonColor21.BackColor = System.Drawing.Color.Blue;
             this.ButtonColor21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor21.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor21.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor21.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor21.FlatAppearance.BorderSize = 0;
             this.ButtonColor21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -624,6 +665,8 @@
             // 
             this.ButtonColor18.BackColor = System.Drawing.Color.Aqua;
             this.ButtonColor18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor18.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor18.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor18.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor18.FlatAppearance.BorderSize = 0;
             this.ButtonColor18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -639,6 +682,8 @@
             // 
             this.ButtonColor15.BackColor = System.Drawing.Color.Lime;
             this.ButtonColor15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor15.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor15.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor15.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor15.FlatAppearance.BorderSize = 0;
             this.ButtonColor15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -654,6 +699,8 @@
             // 
             this.ButtonColor12.BackColor = System.Drawing.Color.Yellow;
             this.ButtonColor12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor12.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor12.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor12.FlatAppearance.BorderSize = 0;
             this.ButtonColor12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -669,6 +716,8 @@
             // 
             this.ButtonColor9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.ButtonColor9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor9.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor9.FlatAppearance.BorderSize = 0;
             this.ButtonColor9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -684,6 +733,8 @@
             // 
             this.ButtonColor6.BackColor = System.Drawing.Color.Red;
             this.ButtonColor6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor6.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor6.FlatAppearance.BorderSize = 0;
             this.ButtonColor6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -699,6 +750,8 @@
             // 
             this.ButtonColor3.BackColor = System.Drawing.Color.Black;
             this.ButtonColor3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor3.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor3.FlatAppearance.BorderSize = 0;
             this.ButtonColor3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -714,6 +767,8 @@
             // 
             this.ButtonColor20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ButtonColor20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor20.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor20.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor20.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor20.FlatAppearance.BorderSize = 0;
             this.ButtonColor20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -729,6 +784,8 @@
             // 
             this.ButtonColor17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ButtonColor17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor17.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor17.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor17.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor17.FlatAppearance.BorderSize = 0;
             this.ButtonColor17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -744,6 +801,8 @@
             // 
             this.ButtonColor14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ButtonColor14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor14.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor14.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor14.FlatAppearance.BorderSize = 0;
             this.ButtonColor14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -759,6 +818,8 @@
             // 
             this.ButtonColor11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.ButtonColor11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor11.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor11.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor11.FlatAppearance.BorderSize = 0;
             this.ButtonColor11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -774,6 +835,8 @@
             // 
             this.ButtonColor8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ButtonColor8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor8.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor8.FlatAppearance.BorderSize = 0;
             this.ButtonColor8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -789,6 +852,8 @@
             // 
             this.ButtonColor5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.ButtonColor5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor5.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor5.FlatAppearance.BorderSize = 0;
             this.ButtonColor5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -804,6 +869,8 @@
             // 
             this.ButtonColor2.BackColor = System.Drawing.Color.Silver;
             this.ButtonColor2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor2.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor2.FlatAppearance.BorderSize = 0;
             this.ButtonColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -819,6 +886,8 @@
             // 
             this.ButtonColor19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ButtonColor19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor19.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor19.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor19.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor19.FlatAppearance.BorderSize = 0;
             this.ButtonColor19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -834,6 +903,8 @@
             // 
             this.ButtonColor16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ButtonColor16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor16.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor16.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor16.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor16.FlatAppearance.BorderSize = 0;
             this.ButtonColor16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -849,6 +920,8 @@
             // 
             this.ButtonColor13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ButtonColor13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor13.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor13.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor13.FlatAppearance.BorderSize = 0;
             this.ButtonColor13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -864,6 +937,8 @@
             // 
             this.ButtonColor10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ButtonColor10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor10.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor10.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor10.FlatAppearance.BorderSize = 0;
             this.ButtonColor10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -879,6 +954,8 @@
             // 
             this.ButtonColor7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ButtonColor7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor7.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor7.FlatAppearance.BorderSize = 0;
             this.ButtonColor7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -894,6 +971,8 @@
             // 
             this.ButtonColor4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ButtonColor4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor4.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor4.FlatAppearance.BorderSize = 0;
             this.ButtonColor4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -909,6 +988,8 @@
             // 
             this.ButtonColor1.BackColor = System.Drawing.Color.White;
             this.ButtonColor1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonColor1.ContextMenuStrip = this.ContextMenuStripColorFill;
+            this.ButtonColor1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonColor1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(26)))), ((int)(((byte)(29)))));
             this.ButtonColor1.FlatAppearance.BorderSize = 0;
             this.ButtonColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -957,13 +1038,16 @@
             // Canva
             // 
             this.Canva.BackColor = System.Drawing.Color.White;
+            this.Canva.Cursor = System.Windows.Forms.Cursors.Cross;
             this.Canva.Location = new System.Drawing.Point(0, 0);
             this.Canva.Name = "Canva";
             this.Canva.Size = new System.Drawing.Size(100, 100);
             this.Canva.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.Canva.TabIndex = 0;
             this.Canva.TabStop = false;
+            this.Canva.Paint += new System.Windows.Forms.PaintEventHandler(this.Canva_Paint);
             this.Canva.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Canva_MouseClick);
+            this.Canva.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Canva_MouseDoubleClick);
             this.Canva.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Canva_MouseDown);
             this.Canva.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Canva_MouseMove);
             this.Canva.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Canva_MouseUp);
@@ -990,6 +1074,7 @@
             this.ChromPanel.PerformLayout();
             this.ToolsPanel.ResumeLayout(false);
             this.ToolsPanel.PerformLayout();
+            this.ContextMenuStripColorFill.ResumeLayout(false);
             this.PanelShapes.ResumeLayout(false);
             this.PanelTools.ResumeLayout(false);
             this.ClientArea.ResumeLayout(false);
@@ -1034,7 +1119,7 @@
         private System.Windows.Forms.Button SaveFileButton;
         private System.Windows.Forms.Button ReduButton;
         private System.Windows.Forms.Button BrushUp;
-        private System.Windows.Forms.TextBox BrushSize;
+        private System.Windows.Forms.TextBox PenSize;
         private System.Windows.Forms.Button BrushDown;
         private System.Windows.Forms.Button ButtonDWEraser;
         private System.Windows.Forms.Panel ClientArea;
@@ -1062,6 +1147,8 @@
         private System.Windows.Forms.Button ButtonDWRectangle;
         private System.Windows.Forms.Button ButtonDWEllipse;
         private System.Windows.Forms.Button ButtonDWPolygon;
+        private System.Windows.Forms.ContextMenuStrip ContextMenuStripColorFill;
+        private System.Windows.Forms.ToolStripMenuItem fillUpToolStripMenuItem;
     }
 }
 
