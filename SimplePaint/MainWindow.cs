@@ -63,18 +63,12 @@ namespace SimplePaint
             }
         }
 
-        #region Public Method
         public void SetCanvaBitMap(Bitmap bm)
         {
             Canva.Image = bm;
         }
-        public void SetColorPicked(Color c)
-        {
-            ColorPicked.BackColor = c;
-        }
-        #endregion
 
-        #region Painting
+        #region Draw Tools Setts
         enum DrawMethod
         {
             //Tools
@@ -106,21 +100,37 @@ namespace SimplePaint
 
             bt.BackColor = Color.FromArgb(22, 26, 29);
 
-            if (dw != DrawMethod.Polygon) 
+            if (dw != DrawMethod.Polygon)
             {
-                lines.Clear();
+                polygon.Clear();
                 Canva.Refresh();
             }
         }
+        private void PenColorChanged(object sender, EventArgs e)
+        {
+            Mediator.ChangePenColor(ColorPicked.BackColor);
+        }
 
+        private void PenWidthChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text == "") textBox.Text = "1";
+            Mediator.ChangePenWidth(Convert.ToInt16(PenSize.Text));
+        }
+        public void SetColorPicked(Color c)
+        {
+            ColorPicked.BackColor = c;
+        }
+        #endregion
+
+        #region Mouse Canva
         Point startPoint, endPoint;
         bool isPainting = false;
-        List<Point> lines = new List<Point>();
+        List<Point> polygon = new List<Point>();
         private void Canva_MouseDown(object sender, MouseEventArgs e)
         {
             isPainting = true;
             startPoint = e.Location;
-            lines.Add(startPoint);
         }
 
         private void Canva_MouseUp(object sender, MouseEventArgs e)
@@ -134,7 +144,7 @@ namespace SimplePaint
                 case DrawMethod.Ellipse: Mediator.DrawEllipse(startPoint, endPoint); break;
             }
 
-            Mediator.MakeBackup();
+            if (dw != DrawMethod.Polygon) Mediator.MakeBackup();
         }
 
         private void Canva_MouseMove(object sender, MouseEventArgs e)
@@ -145,8 +155,7 @@ namespace SimplePaint
             switch (dw)
             {
                 case DrawMethod.Pen:
-                    //Mediator.DrawLine(startPoint, endPoint);
-                    lines.Add(endPoint);
+                    Mediator.DrawLine(startPoint, endPoint);
                     startPoint = endPoint;
                     break;
                 case DrawMethod.Eraser:
@@ -164,7 +173,7 @@ namespace SimplePaint
             {
                 case DrawMethod.Pipette: Mediator.GetColor(e.X, e.Y); break;
                 case DrawMethod.Fill: Mediator.Fill(e.X, e.Y); break;
-                case DrawMethod.Polygon: lines.Add(e.Location); break;
+                case DrawMethod.Polygon: polygon.Add(e.Location); break;
             }
             Canva.Refresh();
         }
@@ -174,12 +183,15 @@ namespace SimplePaint
             switch (dw)
             {
                 case DrawMethod.Polygon:
-                    if (lines.Count > 1) Mediator.DrawPolygon(lines.ToArray());
-                    lines.Clear();
+                    if (polygon.Count > 1) Mediator.DrawPolygon(polygon.ToArray());
+                    polygon.Clear();
+                    Mediator.MakeBackup();
                     break;
             }
         }
+        #endregion
 
+        #region Other Canva
         private void Canva_Paint(object sender, PaintEventArgs e)
         {
             if (!isPainting) return;
@@ -203,24 +215,12 @@ namespace SimplePaint
                         ); 
                     break;
                 case DrawMethod.Polygon: 
-                    if (lines.Count > 1) g.DrawPolygon(Mediator.Tools.Pen, lines.ToArray());
+                    if (polygon.Count > 1) g.DrawPolygon(Mediator.Tools.Pen, polygon.ToArray());
                     break;
             }
         }
 
-        private void PenColorChanged(object sender, EventArgs e)
-        {
-            Mediator.ChangePenColor(ColorPicked.BackColor);
-        }
-
-        private void PenWidthChanged(object sender, EventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            if (textBox.Text == "") textBox.Text = "1";
-            Mediator.ChangePenWidth(Convert.ToInt16(PenSize.Text));
-        }
-
-        private void fillUpToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FillUpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ContextMenuStrip owner = (sender as ToolStripItem).Owner as ContextMenuStrip;
             if (owner != null)
@@ -229,9 +229,7 @@ namespace SimplePaint
                 Canva.Refresh();
             }
         }
-        #endregion
 
-        #region ViewToView
         private void CanvaSizeChanged(object sender, EventArgs e)
         {
             int width; Int32.TryParse(CanvaWidht.Text, out width);
@@ -244,7 +242,28 @@ namespace SimplePaint
                 Mediator.ResizeCanva(width, height);
             }
         }
+        #endregion
 
+        #region File Button
+        private void SaveFileButton_Click(object sender, EventArgs e)
+        {
+            Mediator.Save();
+        }
+
+        private void UndoButton_Click(object sender, EventArgs e)
+        {
+            Mediator.Undo();
+            Canva.Refresh();
+        }
+
+        private void ReduButton_Click(object sender, EventArgs e)
+        {
+            Mediator.Redo();
+            Canva.Refresh();
+        }
+        #endregion 
+
+        #region View
         private void MainWindow_SizeChanged(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Maximized)
@@ -298,13 +317,6 @@ namespace SimplePaint
             }
         }
         #endregion
-
-        #region ViewToModel
-        private void SaveFileButton_Click(object sender, EventArgs e)
-        {
-            Mediator.Save();
-        }
-        #endregion 
 
         #region Drag Window
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

@@ -253,7 +253,7 @@
             this.fillUpToolStripMenuItem.Name = "fillUpToolStripMenuItem";
             this.fillUpToolStripMenuItem.Size = new System.Drawing.Size(131, 32);
             this.fillUpToolStripMenuItem.Text = "Fill up";
-            this.fillUpToolStripMenuItem.Click += new System.EventHandler(this.fillUpToolStripMenuItem_Click);
+            this.fillUpToolStripMenuItem.Click += new System.EventHandler(this.FillUpToolStripMenuItem_Click);
             // 
             // PanelShapes
             // 
@@ -573,6 +573,7 @@
             this.UndoButton.Size = new System.Drawing.Size(100, 40);
             this.UndoButton.TabIndex = 6;
             this.UndoButton.UseVisualStyleBackColor = false;
+            this.UndoButton.Click += new System.EventHandler(this.UndoButton_Click);
             // 
             // LabelShapes
             // 
@@ -615,6 +616,7 @@
             this.ReduButton.Size = new System.Drawing.Size(100, 40);
             this.ReduButton.TabIndex = 5;
             this.ReduButton.UseVisualStyleBackColor = false;
+            this.ReduButton.Click += new System.EventHandler(this.ReduButton_Click);
             // 
             // LabelTools
             // 

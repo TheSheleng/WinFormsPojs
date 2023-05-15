@@ -23,6 +23,7 @@ namespace SimplePaint
 
             Tools = new ModelTools();
             Backups = new ModelBitmapBackup(10);
+            Backups.AddBackup(Canva.Bitmap);
         }
 
         public void ResizeCanva(int width, int height)
@@ -31,6 +32,7 @@ namespace SimplePaint
             View.SetCanvaBitMap(Canva.Bitmap);
         }
 
+        #region Draw Method
         public void DrawLines(Point[] ps) => Canva.DrawLines(Tools.Pen, ps);
         public void EraseLines(Point[] ps) => Canva.DrawLines(Tools.Eraser, ps);
         public void DrawLine(Point p1, Point p2) => Canva.DrawLine(Tools.Pen, p1, p2);
@@ -40,16 +42,29 @@ namespace SimplePaint
         public void DrawPolygon(Point[] ps) => Canva.DrawPolygon(Tools.Pen, ps);
         public void ChangePenColor(Color c) => Tools.Pen.Color = c;
         public void ChangePenWidth(int w) => Tools.Eraser.Width = (int)((Tools.Pen.Width = w) * 1.5);
+        public void Fill(int x, int y) => Canva.Fill(x, y, Tools.Pen.Color);
+        #endregion
 
         public void GetColor(int x, int y)
         {
             Tools.Pen.Color = Canva.GetPixel(x, y);
             View.SetColorPicked(Tools.Pen.Color);
         }
-        public void Fill(int x, int y) => Canva.Fill(x, y, Tools.Pen.Color);
         public void Clear(Color c) => Canva.Clear(c);
 
+        #region File work
         public void Save() => Canva.Export();
         public void MakeBackup() => Backups.AddBackup(Canva.Bitmap);
+        public void Undo()
+        {
+            Bitmap bm = Backups.Undo();
+            if (bm != null) Canva.Graphic.DrawImage(Image.FromHbitmap(bm.GetHbitmap()), 0, 0);
+        }
+        public void Redo()
+        {
+            Bitmap bm = Backups.Redo();
+            if (bm != null) Canva.Graphic.DrawImage(Image.FromHbitmap(bm.GetHbitmap()), 0, 0);
+        }
+        #endregion
     }
 }

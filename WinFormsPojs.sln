@@ -5,8 +5,6 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unmatched", "Unmatched\Unmatched.csproj", "{4374A4C5-1737-442D-91EF-7304110415BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplPainter", "SimplPainter\SimplPainter.csproj", "{964AFBEB-1A26-4024-9A8E-BE6DDBB7B404}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplePaint", "SimplePaint\SimplePaint.csproj", "{F300889D-C6EB-4457-9F5D-CC5795D4A878}"
 EndProject
 Global
@@ -25,14 +23,6 @@ Global
 		{4374A4C5-1737-442D-91EF-7304110415BD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4374A4C5-1737-442D-91EF-7304110415BD}.Release|x86.ActiveCfg = Release|x86
 		{4374A4C5-1737-442D-91EF-7304110415BD}.Release|x86.Build.0 = Release|x86
-		{964AFBEB-1A26-4024-9A8E-BE6DDBB7B404}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{964AFBEB-1A26-4024-9A8E-BE6DDBB7B404}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{964AFBEB-1A26-4024-9A8E-BE6DDBB7B404}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{964AFBEB-1A26-4024-9A8E-BE6DDBB7B404}.Debug|x86.Build.0 = Debug|Any CPU
-		{964AFBEB-1A26-4024-9A8E-BE6DDBB7B404}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{964AFBEB-1A26-4024-9A8E-BE6DDBB7B404}.Release|Any CPU.Build.0 = Release|Any CPU
-		{964AFBEB-1A26-4024-9A8E-BE6DDBB7B404}.Release|x86.ActiveCfg = Release|Any CPU
-		{964AFBEB-1A26-4024-9A8E-BE6DDBB7B404}.Release|x86.Build.0 = Release|Any CPU
 		{F300889D-C6EB-4457-9F5D-CC5795D4A878}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F300889D-C6EB-4457-9F5D-CC5795D4A878}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F300889D-C6EB-4457-9F5D-CC5795D4A878}.Debug|x86.ActiveCfg = Debug|Any CPU

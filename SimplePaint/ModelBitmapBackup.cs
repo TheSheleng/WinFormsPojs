@@ -11,7 +11,6 @@ namespace SimplePaint
     {
         LinkedList<Bitmap> undo;
         LinkedList<Bitmap> redo;
-        int index = 0;
         int MaxSize;
 
         public ModelBitmapBackup(int maxSize)
@@ -29,19 +28,35 @@ namespace SimplePaint
                     new Rectangle(0, 0, bt.Width, bt.Height),
                     bt.PixelFormat
                 ));
+            redo.Clear();
 
             if (undo.Count > MaxSize) undo.RemoveLast();
-            else index++;
         }
 
         public Bitmap Undo()
         {
+            if (undo.Count == 0) return null;
             redo.AddFirst(undo.First());
             undo.RemoveFirst();
-            return redo.First().Clone(
+            if (undo.Count == 0) return null;
+
+            return undo.First().Clone(
+                new Rectangle(0, 0, undo.First().Width, undo.First().Height),
+                undo.First().PixelFormat
+            );
+        }
+
+        public Bitmap Redo()
+        {
+            if (redo.Count == 0) return null;
+            undo.AddFirst(redo.First());
+
+            Bitmap res = redo.First().Clone(
                 new Rectangle(0, 0, redo.First().Width, redo.First().Height),
                 redo.First().PixelFormat
             );
+            redo.RemoveFirst();
+            return res;
         }
     }
 }
