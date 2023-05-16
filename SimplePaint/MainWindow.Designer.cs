@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.ChromPanel = new System.Windows.Forms.Panel();
             this.ChromMinimize = new System.Windows.Forms.Button();
             this.ChromMaximize = new System.Windows.Forms.Button();
@@ -1066,6 +1067,7 @@
             this.ClientSize = new System.Drawing.Size(1500, 900);
             this.Controls.Add(this.ClientArea);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1500, 900);
             this.Name = "MainWindow";
             this.Padding = new System.Windows.Forms.Padding(3);
